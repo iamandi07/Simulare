@@ -1,0 +1,58 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
+
+<HBox fx:controller="UI.Controller"
+      xmlns:fx="http://javafx.com/fxml" alignment="center">
+
+    <VBox>
+        <Label text="Cakes:"/>
+        <TableView fx:id="tableViewAgent" editable="true">
+            <columns>
+                <TableColumn fx:id="tableColumnId" text="id">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnName" text="Name" onEditCommit="#editAgentName">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                    <cellFactory>
+                        <TextFieldTableCell fx:factory="forTableColumn" />
+                    </cellFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnDate" text="Date">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="date" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnMinute" text="Minutes" onEditCommit="#editAgentMinutes">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="minutes" />
+                    </cellValueFactory>
+                    <cellFactory>
+                        <TextFieldTableCell fx:factory="forTableColumn" />
+                    </cellFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnStarth" text="Starth">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="starth" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <Button text="Add cake" fx:id="btnCakeAdd" onAction="#btnAgentAddClick" />
+        <Button text="Delete cake" fx:id="btnCakeDelete" onAction="#btnAgentDeleteClick" />
+    </VBox>
+
+</HBox>
